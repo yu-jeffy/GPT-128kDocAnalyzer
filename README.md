@@ -8,7 +8,7 @@ GPT-128kDocAnalyzer is a Python application designed to analyze and extract insi
 
 The program offers two analysis modes: plaintext and vector. The plaintext mode is suitable for larger documents, potentially translating to hundreds of pages of text, while the vector mode is optimized for smaller documents, allowing for more nuanced reasoning and the use of an agent to assist in document analysis.
 
-An approximate calculation suggests that 128k tokens could equate to roughly 64,000 words (assuming an average of 2 tokens per word). With an average of 250-300 words per page in a typical PDF document, this would translate to approximately 213-256 pages.
+An approximate calculation suggests that 128k tokens could equate to roughly 32,000 words, assuming an average of 4 tokens per word. With an average of 250-300 words per page in a typical PDF document, this would translate to approximately 107-128 pages. This estimate provides a general idea, but the actual number can vary based on the specific text content and formatting.
 
 
 
