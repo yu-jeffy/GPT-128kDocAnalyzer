@@ -10,13 +10,13 @@ The program offers two analysis modes: plaintext and vector. The plaintext mode 
 
 An approximate calculation suggests that 128k tokens could equate to roughly 64,000 words (assuming an average of 2 tokens per word). With an average of 250-300 words per page in a typical PDF document, this would translate to approximately 213-256 pages.
 
-...
+
 
 <p align="center">
   <img src="readme_example.gif" alt="Demo GIF">
 </p>
 
-...
+
 
 ## Set-Up
 
