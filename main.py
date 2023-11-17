@@ -64,7 +64,9 @@ if analysis_type == 'plaintext':
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": full_prompt}
-        ]
+        ],
+        temperature=0.3,  # Low temperature of 0.3
+        max_tokens=4095    # Maximum token response length of 4095, current max of model
     )
     # Print just the content of the response
     print(response.choices[0].message.content)
