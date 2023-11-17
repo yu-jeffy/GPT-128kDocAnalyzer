@@ -48,6 +48,12 @@ An approximate calculation suggests that 128k tokens could equate to roughly 64,
 4. If in plaintext mode, you will be prompted to enter your custom prompt for the GPT-4 model.
 5. The program will process your document and return the analysis based on the chosen mode.
 
+
+### Understanding the Output
+- In plaintext mode, the output will be a direct response from the GPT-4 model based on your prompt and the content of the document.
+- In vector mode, the output will be the result of a more complex analysis involving vector embeddings and an agent to assist in document analysis.
+
+
 ## Example Prompts
 
 When using GPT-128kDocAnalyzer, crafting an effective prompt is crucial for obtaining the best results from the model. Below are some example prompts that you can use or modify according to your needs:
@@ -76,9 +82,6 @@ Explain the technical processes described in this manual in layman's terms, focu
 ```
 Use this prompt to translate technical jargon from manuals into accessible language, emphasizing safe and effective operation procedures.
 
-### Understanding the Output
-- In plaintext mode, the output will be a direct response from the GPT-4 model based on your prompt and the content of the document.
-- In vector mode, the output will be the result of a more complex analysis involving vector embeddings and an agent to assist in document analysis.
 
 ## Limitations and Considerations
 - The plaintext mode, while capable of handling larger documents, may still require prompt engineering to ensure the most effective summarization or analysis.
