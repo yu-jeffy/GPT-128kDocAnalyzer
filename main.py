@@ -75,8 +75,11 @@ elif analysis_type == 'vector':
     # Vector-based analysis
     embeddings = OpenAIEmbeddings()
 
+    # Instantiate the language model with the API key
+    llm = OpenAI(api_key=api_key)
+
     # Create a Langchain Document object with the extracted text
-    langchain_document = LangchainDocument(page_content=document_text, metadata={})
+    langchain_document = LangchainDocument(page_content=document_text, metadata={"source": "User-provided document"})
 
     # Create a vector store from the Langchain Document object
     store = Chroma.from_documents([langchain_document], embeddings, collection_name='document_collection')
@@ -88,9 +91,17 @@ elif analysis_type == 'vector':
     toolkit = VectorStoreToolkit(vectorstore_info=vectorstore_info)
     agent_executor = create_vectorstore_agent(llm=llm, toolkit=toolkit, verbose=True)
     user_prompt = input('Input your prompt here: ')
+    
+    # Run the agent executor and capture the response
     response = agent_executor.run(user_prompt)
-    print(response)
-    search = store.similarity_search_with_score(user_prompt)
-    print(search[0][0].page_content)
+    
+    # Assuming the final answer is in the 'Final Answer' section of the response
+    # Extract and print the final answer
+    final_answer = response.get('Final Answer')
+    if final_answer:
+        print(final_answer)
+    else:
+        # If there is no 'Final Answer' key, print the whole response or handle it as needed
+        print(response)
 else:
     print("Invalid analysis type selected.")
