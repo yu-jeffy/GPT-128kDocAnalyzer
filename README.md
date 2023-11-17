@@ -13,9 +13,7 @@ An approximate calculation suggests that 128k tokens could equate to roughly 64,
 ...
 
 <p align="center">
-  <a href="https://asciinema.org/a/vc62CdE39XuoTYzoaDkdYElgz" target="_blank">
-    <img src="https://asciinema.org/a/vc62CdE39XuoTYzoaDkdYElgz.svg" style="box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);">
-  </a>
+  <img src="readme_example.gif" alt="Demo GIF">
 </p>
 
 ...
