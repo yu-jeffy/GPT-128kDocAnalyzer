@@ -20,9 +20,6 @@ from langchain.agents.agent_toolkits import (
     VectorStoreInfo
 )
 
-
-
-
 load_dotenv()
 api_key = os.getenv('OPENAI_API_KEY')
 openai.api_key = api_key
@@ -70,7 +67,7 @@ if analysis_type == 'plaintext':
         ]
     )
     # Print just the content of the response
-    print(response.choices[0].message['content'])
+    print(response.choices[0].message.content)
 elif analysis_type == 'vector':
     # Vector-based analysis
     embeddings = OpenAIEmbeddings()
