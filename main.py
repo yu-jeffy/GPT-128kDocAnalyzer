@@ -3,15 +3,25 @@ import csv
 from docx import Document
 import openai
 from dotenv import load_dotenv
+
+# sqlite fix for python 3.10.2
+import pysqlite3
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 from langchain.llms import OpenAI
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.document_loaders import PyPDFLoader
+from langchain.schema import Document as LangchainDocument
 from langchain.vectorstores import Chroma
 from langchain.agents.agent_toolkits import (
     create_vectorstore_agent,
     VectorStoreToolkit,
     VectorStoreInfo
 )
+
+
+
 
 load_dotenv()
 api_key = os.getenv('OPENAI_API_KEY')
@@ -63,9 +73,13 @@ if analysis_type == 'plaintext':
     print(response.choices[0].message['content'])
 elif analysis_type == 'vector':
     # Vector-based analysis
-    llm = OpenAI(api_key=api_key)  # Initialize with the correct API key
     embeddings = OpenAIEmbeddings()
-    store = Chroma.from_documents([document_text], embeddings, collection_name='document_collection')
+
+    # Create a Langchain Document object with the extracted text
+    langchain_document = LangchainDocument(page_content=document_text, metadata={})
+
+    # Create a vector store from the Langchain Document object
+    store = Chroma.from_documents([langchain_document], embeddings, collection_name='document_collection')
     vectorstore_info = VectorStoreInfo(
         name="document_vectorstore",
         description="Vector store for the document",

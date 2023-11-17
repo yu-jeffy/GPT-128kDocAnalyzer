@@ -1,0 +1,8 @@
+openai
+python-dotenv
+python-docx
+pandas  # If you want to use pandas for CSV handling
+PyPDF2
+langchain
+pysqlite3-binary
+tiktoken
