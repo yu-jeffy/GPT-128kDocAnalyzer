@@ -45,7 +45,7 @@ An approximate calculation suggests that 128k tokens could equate to roughly 64,
    ```
 2. When prompted, enter the file path to the document you wish to analyze.
 3. Choose the analysis type by typing "plaintext" or "vector".
-4. If in plaintext mode, you will be prompted to enter your custom prompt for the GPT-4 model.
+4. Enter your custom prompt for the GPT-4 model when prompted.
 5. The program will process your document and return the analysis based on the chosen mode.
 
 
